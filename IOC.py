@@ -13,7 +13,20 @@ def iocFormula():
     for char, count in letterFreq.items():
         totalAmount.append((char, count))
         
-    #Now we want to loop through that array and 
+    #Now we want to added the total count together
+    totalSum = sum(number for letter, number in totalAmount)
+    
+    #Aftewards we can create a loop that can calculate the IOC
+    testKeyLength = int(input("Please input the keylength: "))
+    ysubStrings = [""] * testKeyLength #Divdes the text based on key length
+    
+    #Now we can loop through and calculate each of the substrings
+    #which we can then format into the IOC calculation below to compare
+    for i, char in enumerate(cipherText):
+        stringIndex = i % testKeyLength
+        ysubStrings[stringIndex] += char
+        
+    
     
 if __name__ == "__main__":
     iocFormula()
