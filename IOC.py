@@ -30,8 +30,9 @@ def iocFormula():
             bottom = (nLength * (nLength - 1))
             #Formula taken from slides to calculate substring ioc
             
-            iocSub += (top / bottom)
-            print(f"  y{index + 1} IOC = {iocSub:.4f}")
+            iocValue = (top / bottom)
+            iocSub += iocValue
+            print(f"  y{index + 1} IOC = {iocValue:.4f}")
             
         #Displays overall ioc calculation for entire sequence at key length    
         iocAverage = iocSub / testKeyLength
