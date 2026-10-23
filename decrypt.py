@@ -1,1 +1,1 @@
-#Will decrypt the plain text of the CipherText.txt fule
+#Will decrypt the plain text of the CipherText.txt file
