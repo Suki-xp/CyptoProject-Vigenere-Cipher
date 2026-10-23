@@ -12,9 +12,6 @@ def iocFormula():
     #Append that count to a totalAmount array
     for char, count in letterFreq.items():
         totalAmount.append((char, count))
-        
-    #Now we want to added the total count together
-    totalSum = sum(number for letter, number in totalAmount)
     
     #Aftewards we can create a loop that can calculate the IOC
     testKeyLength = int(input("Please input the keylength: "))
@@ -32,15 +29,16 @@ def iocFormula():
             frequencyCount.append(charCounts)
     
     #Now bridge together with IOC calculation
-    iocCalculation = sum (frequencyCount * (frequencyCount - 1) / (totalSum * (totalSum - 1)))
-    print(iocCalculation)
-
-#Generates the columns to represent the key length (can be changed with whatever key length is defined)
-def table():
-    #Stuff
-
-#Will decrypt the plain text
+    iocCalculation = 0.0
+    for counts in frequencyCount:
+        nLength = sum(counts.values())
+        #Formula taken from slides
+        top = sum(count * (count - 1) for count in counts.values())
+        bottom = (nLength * (nLength - 1))
+        iocCalculation += (top / bottom)
+        
+    iocAverage = iocCalculation / testKeyLength
+    print(f"Calculated IOC is {iocAverage:.3f}")
     
 if __name__ == "__main__":
     iocFormula()
-    table()
