@@ -20,13 +20,27 @@ def iocFormula():
     testKeyLength = int(input("Please input the keylength: "))
     ysubStrings = [""] * testKeyLength #Divdes the text based on key length
     
-    #Now we can loop through and calculate each of the substrings
-    #which we can then format into the IOC calculation below to compare
+    #Now we can loop through and calculate each of the substrings and its
+    #frequency count
     for i, char in enumerate(cipherText):
         stringIndex = i % testKeyLength
         ysubStrings[stringIndex] += char
-        
     
+    frequencyCount = []    
+    for freq in ysubStrings:
+            charCounts = Counter(freq)
+            frequencyCount.append(charCounts)
+    
+    #Now bridge together with IOC calculation
+    iocCalculation = sum (frequencyCount * (frequencyCount - 1) / (totalSum * (totalSum - 1)))
+    print(iocCalculation)
+
+#Generates the columns to represent the key length (can be changed with whatever key length is defined)
+def table():
+    #Stuff
+
+#Will decrypt the plain text
     
 if __name__ == "__main__":
     iocFormula()
+    table()
