@@ -132,8 +132,8 @@ def table():
     print(f"Key shifts (k1..k{M}): {shifts}")
     print(f"Keyword: {keyword}")
     print()
-    print("Decryption preview (first 120 letters):")
-    print(decryptPreview(CIPHER_TEXT, shifts)[:120])
+    print("Complete decrypted message:")
+    print(decryptPreview(CIPHER_TEXT, shifts))
 
 
 if __name__ == "__main__":
